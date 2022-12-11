@@ -11,7 +11,7 @@ using lab4;
 namespace lab4.Controllers
 {
     [ApiController]
-    [Route("/controller")]
+    [Route("parts")]
     [ApiExplorerSettings(GroupName = "parts")]
     public class PartsController : ControllerBase
     {
@@ -19,42 +19,42 @@ namespace lab4.Controllers
         PartsBLL BLL = new PartsBLL();
 
         [HttpPut]
-        [Route("/add")]
+        [Route("add")]
         public void AddPart(string name, float partVolume, int metalBlankID, int machineID)
         {
             BLL.AddPart(name, partVolume, metalBlankID, machineID);
         }
 
         [HttpGet]
-        [Route("/get all")]
+        [Route("get_all")]
         public List<Part> GetParts()
         {
             return BLL.GetParts();
         }
 
         [HttpGet]
-        [Route("/get by id")]
+        [Route("get_by_id")]
         public Part GetPartByID(int partID)
         {
             return BLL.GetPartByID(partID);
         }
 
         [HttpGet]
-        [Route("/get by name")]
+        [Route("get_by_name")]
         public List<Part> GetPartsByName(string name)
         {
             return BLL.GetPartsByName(name);
         }
 
         [HttpPatch]
-        [Route("/patch name")]
+        [Route("patch_name")]
         public void UpdatePartName(int partID, string newName)
         {
             BLL.UpdatePartName(partID, newName);
         }
 
         [HttpDelete]
-        [Route("/delete by id")]
+        [Route("delete_by_id")]
         public void RemovePart(int partID)
         {
             BLL.RemovePart(partID);

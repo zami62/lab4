@@ -11,7 +11,7 @@ using lab4;
 namespace lab4.Controllers
 {
     [ApiController]
-    [Route("/controller")]
+    [Route("orders")]
     [ApiExplorerSettings(GroupName = "orders")]
     public class OrdersController : ControllerBase
     {
@@ -19,42 +19,42 @@ namespace lab4.Controllers
         OrdersBLL BLL = new OrdersBLL();
 
         [HttpPut]
-        [Route("/add")]
+        [Route("add")]
         public void AddOrder(int orderID, int customerID, string paymentMethod)
         {
             BLL.AddOrder(orderID, customerID, paymentMethod);
         }
 
         [HttpGet]
-        [Route("/get all")]
+        [Route("get_all")]
         public List<Order> GetOrders()
         {
             return BLL.GetOrders();
         }
 
         [HttpGet]
-        [Route("/get by id")]
+        [Route("get_by_id")]
         public Order GetOrderByID(int orderID)
         {
             return BLL.GetOrderByID(orderID);
         }
 
         [HttpPatch]
-        [Route("/patch customer")]
+        [Route("patch_customer")]
         public void UpdateOrderCustomer(int orderID, int newCustomerID)
         {
             BLL.UpdateOrderCustomer(orderID, newCustomerID);
         }
 
         [HttpPatch]
-        [Route("/patch payment method")]
+        [Route("patch_payment_method")]
         public void UpdateOrderPaymentMethod(int orderID, string newPaymentMethod)
         {
             BLL.UpdateOrderPaymentMethod(orderID, newPaymentMethod);
         }
 
         [HttpDelete]
-        [Route("/delete by id")]
+        [Route("delete_by_id")]
         public void RemoveOrder(int orderID)
         {
             BLL.RemoveOrder(orderID);

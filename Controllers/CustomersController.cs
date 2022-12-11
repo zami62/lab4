@@ -10,7 +10,7 @@ using lab4;
 namespace lab4.Controllers
 {
     [ApiController]
-    [Route("/controller")]
+    [Route("customers")]
     [ApiExplorerSettings(GroupName = "customers")]
     public class CustomersController : ControllerBase
     {
@@ -18,56 +18,56 @@ namespace lab4.Controllers
         CustomersBLL BLL = new CustomersBLL();
 
         [HttpPut]
-        [Route("/add")]
+        [Route("add")]
         public void AddCustomer(string name, string phoneNumber)
         {
             BLL.AddCustomer(name, phoneNumber);
         }
 
         [HttpGet]
-        [Route("/get all")]
+        [Route("get_all")]
         public List<Customer> GetCustomers()
         {
             return BLL.GetCustomers();
         }
 
         [HttpGet]
-        [Route("/get by id")]
-        public Customer GetCustomerByID(int partID)
+        [Route("get_by_id")]
+        public Customer GetCustomerByID(int customerID)
         {
-            return BLL.GetCustomerByID(partID);
+            return BLL.GetCustomerByID(customerID);
         }
 
         [HttpGet]
-        [Route("/get by name")]
+        [Route("get_by_name")]
         public List<Customer> GetCustomersByName(string name)
         {
             return BLL.GetCustomersByName(name);
         }
 
         [HttpGet]
-        [Route("/get by phone number")]
+        [Route("get_by_phone_number")]
         public List<Customer> GetCustomersByPhoneNumber(string phoneNumber)
         {
             return BLL.GetCustomersByName(phoneNumber);
         }
 
         [HttpPatch]
-        [Route("/patch name")]
+        [Route("patch_name")]
         public void UpdateCustomerName(int partID, string newName)
         {
             BLL.UpdateCustomerName(partID, newName);
         }
 
         [HttpPatch]
-        [Route("/patch phone number")]
+        [Route("patch_phone_number")]
         public void UpdateCustomerPhoneNumber(int partID, string newPhoneNumber)
         {
             BLL.UpdateCustomerName(partID, newPhoneNumber);
         }
 
         [HttpDelete]
-        [Route("/delete by id")]
+        [Route("/delete_by_id")]
         public void RemoveCustomer(int partID)
         {
             BLL.RemoveCustomer(partID);

@@ -26,9 +26,9 @@ namespace lab4
             return Adapter.GetCustomers();
         }
 
-        public Customer GetCustomerByID(int partID)
+        public Customer GetCustomerByID(int customerID)
         {
-            return Adapter.GetCustomerByID(partID);
+            return Adapter.GetCustomerByID(customerID);
         }
 
         public List<Customer> GetCustomersByName(string name)
@@ -41,19 +41,19 @@ namespace lab4
             return Adapter.GetCustomersByName(phoneNumber);
         }
 
-        public void UpdateCustomerName(int partID, string newName)
+        public void UpdateCustomerName(int customerID, string newName)
         {
-            Adapter.UpdateCustomerName(partID, newName);
+            Adapter.UpdateCustomerName(customerID, newName);
         }
 
-        public void UpdateCustomerPhoneNumber(int partID, string newPhoneNumber)
+        public void UpdateCustomerPhoneNumber(int customerID, string newPhoneNumber)
         {
-            Adapter.UpdateCustomerName(partID, newPhoneNumber);
+            Adapter.UpdateCustomerName(customerID, newPhoneNumber);
         }
 
-        public void RemoveCustomer(int partID)
+        public void RemoveCustomer(int customerID)
         {
-            Adapter.RemoveCustomer(partID);
+            Adapter.RemoveCustomer(customerID);
         }
     }
 }

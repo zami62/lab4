@@ -11,7 +11,7 @@ using lab4;
 namespace lab4.Controllers
 {
     [ApiController]
-    [Route("/controller")]
+    [Route("machines")]
     [ApiExplorerSettings(GroupName = "machines")]
     public class MachinesController : ControllerBase
     {
@@ -19,42 +19,42 @@ namespace lab4.Controllers
         MachinesBLL BLL = new MachinesBLL();
 
         [HttpPut]
-        [Route("/add")]
+        [Route("add")]
         public void AddMachine(string model, Vector3 maxDimensions, float processingTimeOf1mm3, float priceOfProcessing1mm3)
         {
             BLL.AddMachine(model, maxDimensions, priceOfProcessing1mm3, priceOfProcessing1mm3);
         }
 
         [HttpGet]
-        [Route("/get all")]
+        [Route("get_all")]
         public List<Machine> GetMachines()
         {
             return BLL.GetMachines();
         }
 
         [HttpGet]
-        [Route("/get by id")]
+        [Route("get_by_id")]
         public Machine GetMachineByID(int machineID)
         {
             return BLL.GetMachineByID(machineID);
         }
 
         [HttpGet]
-        [Route("/get by model")]
+        [Route("get_by_model")]
         public List<Machine> GetMachinesByModel(string model)
         {
             return BLL.GetMachinesByModel(model);
         }
 
         [HttpPatch]
-        [Route("/patch processing price")]
+        [Route("patch_processing_price")]
         public void UpdateMachineProcessingPrice(int machineID, float newPriceOfProcessing)
         {
             BLL.UpdateMachineProcessingPrice(machineID, newPriceOfProcessing);
         }
 
         [HttpDelete]
-        [Route("/delete by id")]
+        [Route("delete_by_id")]
         public void RemoveMachine(int machineID)
         {
             BLL.RemoveMachine(machineID);
